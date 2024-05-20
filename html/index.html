@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Libros</title>
+    <link rel="stylesheet" href="../css/cs.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    :root{
+        --letra: clamp(1.25rem, 0.625rem + 2.5vw, 3.75rem);
+    }
+
+    header{
+        background-image: url(../img/image.png);
+        background-size: cover;
+        background-position-x: 50%;
+
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #353434;
+        background-position-y: 25%;
+
+
+        h1{
+                position: absolute;
+            top: 3vh;
+            color: #615233;
+
+            font-size: var(--letra);
+            left: 0;
+            right: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+                letter-spacing: 4px;
+                font-style: italic;
+                
+                text-align: center;
+                span{
+                    display: block;
+
+                }
+        }
+        .textofondocentro{
+            z-index: 10;
+
+            width: 50%;
+            padding: 40px;
+            height: 400px;
+             color: #6d6d6d;
+
+                h2{
+                    margin: 0vw 6vw;
+
+                    text-align: center;
+                    letter-spacing: 2px;
+                    font-size: clamp(0.9375rem, 0.3906rem + 2.1875vw, 3.125rem);
+                }
+                p{
+                    text-align: center;
+                    color: #806b3e;
+                    font-size: clamp(0.625rem, 0.3125rem + 1.25vw, 1.875rem);
+                    margin: 3vw 7vw;
+                }
+                .texto{
+                  display: flex;
+                  justify-content: space-evenly;
+                  p{
+                    color: #c99931;
+
+                    span{
+                        display: block;
+                        color: #6d6d6d;
+
+                    }
+                  }
+                  p:first-child{
+                    margin-right: 20px;
+                    
+                  }
+                  p:last-child{
+                    margin-left: 20px;
+
+                  }
+                }
+            }
+    }
+    .separador{
+        height: 10vh;
+        background-color: #353434;
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        h3{
+            color: #ecc46b;
+            font-size: 50px;
+            text-align: center;
+            font-style: italic;
+        }
+    }
+    @media (max-width: 705px) {
+        header{
+                height: 60vh;
+        }
+        .textofondocentro{
+            min-width: 90%;
+           margin-bottom: -70px;
+
+            color: red;
+        } 
+    }
+    .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.pagination button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.pagination button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+.libros-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+        width: 50%;
+        margin: auto;
+        gap: 10px;
+        padding: 50px 20px;
+        
+    .libro{
+        margin: auto;
+        width: 400px;
+        height: 500px;
+        border: 1px solid ;
+        border-radius: 30px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 80% 20%;
+        overflow: hidden;
+    
+            .slibro{
+        
+        background-size: cover;
+        background-position: 50%;
+        }
+        h4{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #353434;
+            color: whitesmoke;
+            padding: 20px;
+            font-size: 2vh;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+    }
+}
+a{
+    color: black;
+    border: 1px solid ;
+
+    list-style: none;
+    text-decoration: none;
+}
+</style>
+<body>
+    <header>
+       <h1>
+            BIBLIOTECA INSTITUCIONAL 
+            <span>
+                "Carlos Salazar Romero"
+            </span>
+
+       </h1>
+       <div class="textofondocentro">
+        <h2>
+            Usa los libros para liberar tu potencial supera los limites de los conocimientos con nosotros.
+       </h2>
+       <p>
+        Recoge tus libros en nuestra biblioteca presencial aqui un listado de los libros que puedes tener y separar
+       </p>
+     <div class="texto">
+        <p>
+            <span>6</span>
+            Paginas
+          </p>
+          <p>
+            <span>51</span>
+            Elementos
+          </p>
+     </div>
+     <i>
+
+     </i>
+       </div>
+     
+    </header>
+    <div class="separador">
+        <h3>
+            Listado de libros
+        </h3>
+    </div>
+
+    <div id="libros-container" class="libros-container"></div>
+    <div id="pagination" class="pagination">
+        <button id="prev-page" onclick="prevPage()">Anterior</button>
+        <span id="page-info"></span>
+        <button id="next-page" onclick="nextPage()">Siguiente</button>
+    </div>
+
+    <script src="../js/scrip.js"></script>
+</body>
+</html>
